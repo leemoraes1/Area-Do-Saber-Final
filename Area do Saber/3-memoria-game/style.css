@@ -1,0 +1,193 @@
+/* Reset padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #ffc337;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Barra de navegação fixa */
+.navbar {
+  width: 100%;
+  background-color: #673ab7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar .inicio {
+  background-color: #7bc043;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.navbar .inicio:hover {
+  background-color: #5a9f37;
+}
+
+/* Conteúdo principal centralizado */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;   /* espaço para a navbar */
+  padding-bottom: 80px; /* espaço para o rodapé */
+}
+header {
+  background-color: #673ab7;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+/* Tabuleiro do jogo */
+#cardboard {
+  width: 90vw;
+  max-width: 400px;
+  height: 90vw;
+  max-height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  border: 4px solid #6736bb;
+}
+
+/* Cartões de memória */
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.33% - 10px);
+  margin: 5px;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+/* Faces dos cartões */
+.front-face,
+.back-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.front-face {
+  transform: rotateY(180deg);
+}
+
+/* Botão reiniciar */
+#restart-btn {
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-size: 1em;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+#restart-btn:hover {
+  background-color: #45a049;
+}
+
+/* Mensagens de fim de jogo */
+.game-over,
+.parabens {
+  background-color: #ff6f61;
+  color: white;
+  font-size: 24px;
+  padding: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  text-align: center;
+  z-index: 1001;
+}
+
+.parabens {
+  background-color: #4caf50;
+}
+
+/* Rodapé fixo */
+footer.caixadeinstrucao {
+  width: 100%;
+  height: 60px;
+  background-color: #673ab7;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  text-align: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+
+  .main-content {
+    padding-top: 100px;
+  }
+
+  #cardboard {
+    width: 400px;
+    height: 400px;
+  }
+
+  .memory-card.matched {
+  box-shadow: 0 0 10px 3px #4caf50;
+  cursor: default;
+}
+
+}

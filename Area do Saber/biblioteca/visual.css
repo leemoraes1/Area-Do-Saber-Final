@@ -1,0 +1,118 @@
+:root {
+  --robin-egg-blue: #5e17ebff;
+  --bright-pink-crayola: #673ab7;
+  --electric-purple: #a548ffff;
+  --orange-peel:  #673ab7;
+  --electric-indigo: #5e17ebff;
+  --mustard: rgb(255, 255, 255);
+  --grape: #6422b8ff;
+  --ivory: #ffc337;
+}
+
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: var(--ivory);
+  color: #333;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 100%;
+    background-color: #673ab7;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .navbar .inicio {
+    background-color: #7bc043;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+  }
+  
+  .navbar .inicio:hover {
+    background-color: #5a9f37;
+  }
+  
+header {
+  background-color: var(--orange-peel);
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.filtros {
+  text-align: center;
+  margin: 20px;
+}
+
+.filtros button {
+  background-color: var(--bright-pink-crayola);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.filtros button:hover {
+  background-color: var(--electric-purple);
+}
+
+.livros {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.livro {
+  background-color: var(--mustard);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 15px;
+}
+
+.livro img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.livro h3 {
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: var(--robin-egg-blue);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background-color: var(--electric-indigo);
+}

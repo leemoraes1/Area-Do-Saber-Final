@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Jogo da Cobrinha</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="navbar">
+    <a href="../0-index.html" class="inicio">INÍCIO</a>
+  </div>
+
+  <header>
+    <h1>Jogo da Cobrinha</h1>
+  </header>
+
+  <br>
+
+  <div class="container">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div id="gameOver" class="mensagem" style="display:none; color: red;">
+      Fim de jogo!
+    </div>
+    <div id="parabens" class="mensagem" style="display:none; color: green;">
+      Parabéns, você venceu!
+    </div>
+
+    <div class="bottom-buttons">
+      <button class="verde" onclick="startGame()">Iniciar Jogo</button>
+    </div>
+  </div>
+
+  <footer class="caixadeinstrucao">
+    Use as setas do teclado para mover a cobrinha.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

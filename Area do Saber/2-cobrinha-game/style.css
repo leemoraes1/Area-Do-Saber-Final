@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', sans-serif;
+  background-color: #ffc337;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #673ab7;
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 20px;
+}
+
+.navbar .inicio {
+  background-color: #7bc043;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+header {
+  text-align: center;
+  background-color: #673ab7;
+  color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+#gameCanvas {
+  background-color: #ffffff;
+  border: 4px solid #673ab7;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.bottom-buttons {
+  margin-top: 20px;
+}
+
+button.verde {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.verde:hover {
+  background-color: #45a049;
+}
+
+footer.caixadeinstrucao {
+  width: 100%;
+  height: 60px;
+  background-color: #673ab7;
+  color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mensagem {
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 10px;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2048</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="navbar">
+    <a href="../0-index.html" class="inicio">INÍCIO</a>
+  </div>
+  <header>
+    <h1>Jogo 2048</h1>
+  </header>
+  <br><br><br>
+    <div class="game-container">
+      <canvas id="gameCanvas" width="300" height="404"></canvas>
+      <div id="mensagemJogo" class="mensagem"></div>
+      <div class="bottom-buttons">
+        <button class="verde" id="reiniciarBtn">Reiniciar</button>
+      </div>
+    </div>
+  </div>
+  <footer class="caixadeinstrucao">
+    Combine números iguais para formar blocos maiores.
+        O jogo termina se não houver mais movimentos.
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

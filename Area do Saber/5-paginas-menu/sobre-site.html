@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre o Site</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', sans-serif;
+    background-color: #ffc337;
+      margin: 0;
+      padding: 0;
+      color: #4a2600;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      width: 100%;
+      background-color: #673ab7;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .navbar .inicio {
+      background-color: #7bc043;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+    }
+
+    .navbar .inicio:hover {
+      background-color: #5a9f37;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 100px auto 40px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #5e17eb;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.6em;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 80px 20px 20px;
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 1.5em;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+      }
+
+      .navbar .inicio {
+        margin-top: 10px;
+        align-self: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="http://127.0.0.1:3002/Area do Saber/0-index.html" class="inicio">INÍCIO</a>
+  </div>
+
+  <div class="container">
+    <h1>Sobre o Site</h1>
+    <p>
+      Este site foi desenvolvido com o objetivo de oferecer jogos simples, divertidos e acessíveis para crianças com deficiência (PCD). A proposta é estimular a mente, coordenação motora e memória de forma leve e inclusiva.
+    </p>
+    <p>
+      Os jogos disponíveis foram escolhidos por serem intuitivos e populares, e contam com recursos que facilitam a interação:
+    </p>
+    <ul>
+      <li><strong>2048:</strong> Um jogo de lógica e raciocínio com controles acessíveis.</li>
+      <li><strong>Jogo da Cobrinha:</strong> Estimula reflexos e coordenação motora.</li>
+      <li><strong>Empilhar:</strong> Testa foco e precisão.</li>
+      <li><strong>Memória:</strong> Ajuda no desenvolvimento da atenção e memorização.</li>
+      <li><strong>Biblioteca:</strong> Espaço com histórias e conteúdos educativos acessíveis.</li>
+    </ul>
+    <p>
+      Acreditamos que todos têm o direito de brincar, aprender e se divertir. Esperamos que este espaço traga alegria e contribua para o desenvolvimento das crianças PCD.
+    </p>
+  </div>
+</body>
+</html>

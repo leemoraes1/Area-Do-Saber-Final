@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Biblioteca Infantil</title>
+  <link rel="stylesheet" href="visual.css" />
+</head>
+<body>
+  <div class="navbar">
+    <a href="../0-index.html" class="inicio">INÍCIO</a>
+  </div>
+  <header>
+    <h1> Biblioteca Infantil Virtual</h1>
+  </header>
+
+  <section class="filtros">
+    <button onclick="filtrar('todas')">Todas as Idades</button>
+    <button onclick="filtrar('3-5')">3 a 5 anos</button>
+    <button onclick="filtrar('6-8')">6 a 8 anos</button>
+    <button onclick="filtrar('9-12')">9 a 12 anos</button>
+    <button onclick="filtrar('13-15')">13 a 15 anos</button>
+  </section>
+
+  <main class="livros" id="livros">
+
+    <div class="livro" data-faixa="3-5">
+      <img src="capas/A bela andorinha da asinha quebrada.jpg" alt="Livro 1" />
+      <h3>A bela andorinha da asinha quebrada</h3>
+      <a href="livros/A BEÇA ANDORINHA DA ASINHA QUEBRADA - Coleção PAIC.pdf" target="_blank" class="btn">Ler história</a>
+    </div>
+
+    <div class="livro" data-faixa="6-8">
+      <img src="capas/A joaninha que perdeu as pintinhas.jpg" alt="Livro 2" />
+      <h3>A joaninha que perdeu as pintinhas</h3>
+      <a href="livros/a_joaninha_que_perdeu_as_pintinhas.pdf" target="_blank" class="btn">Ler história</a>
+    </div>
+
+    <div class="livro" data-faixa="todas">
+      <img src="capas/A Lua Está em Festa.jpg" alt="Livro 3" />
+      <h3>A Lua Está em Festa</h3>
+      <a href="livros/A Lua Está em Festa – Sandra Kaletka.pdf" target="_blank" class="btn">Ler história</a>
+    </div>
+
+    <div class="livro" data-faixa="9-12">
+      <img src="capas/A princesa e a ervilha.png" alt="Livro 4" />
+      <h3>A princesa e a ervilha</h3>
+      <a href="livros/a_princesa_e_a_ervilha_versao_digital.pdf" target="_blank" class="btn">Ler história</a>
+    </div>
+
+    <div class="livro" data-faixa="13-15">
+      <img src="capas/alice-no-pais-das-maravilhas.jpg" alt="Livro 5" />
+      <h3>Alice no país das maravilhas</h3>
+      <a href="livros/alicep.pdf" target="_blank" class="btn">Ler história</a>
+    </div>
+
+    <div class="livro" data-faixa="todas">
+        <img src="capas/chapeuzinho-vermelho.jpg" alt="Livro 5" />
+        <h3>Chapeuzinho Vermelho</h3>
+        <a href="livros/Chapeuzinho Vermelho – Irmãos Grimm.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="todas">
+        <img src="capas/dona-ivone-e-o-papagaio.jpg" alt="Livro 5" />
+        <h3>Dona Ivone e o Papagaio</h3>
+        <a href="livros/dona-ivone-e-o-papagaio.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="13-15">
+        <img src="capas/extraordinario.jpg" alt="Livro 5" />
+        <h3>Extraordinário</h3>
+        <a href="livros/Extraordinário-R.-J.-Palacio.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="3-5">
+        <img src="capas/O Bebê e os Animais.png" alt="Livro 5" />
+        <h3>O Bebê e os Animais</h3>
+        <a href="livros/bebe-animais.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="todas">
+        <img src="capas/O Menino Maluquinho.jpg" alt="Livro 5" />
+        <h3>O Menino Maluquinho</h3>
+        <a href="livros/menino-maluquinho.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="todas">
+        <img src="capas/O Patinho Feio.png" alt="Livro 5" />
+        <h3>O Patinho Feio</h3>
+        <a href="livros/o_patinho_feio_versao_digital.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="9-12">
+        <img src="capas/O Pequeno Príncipe.jpg" alt="Livro 5" />
+        <h3>O Pequeno Príncipe</h3>
+        <a href="livros/o_pequeno_principe_-_antoine_de_saint-exupery_1.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="6-8">
+        <img src="capas/O Vestido Azul.jpg" alt="Livro 5" />
+        <h3>O Vestido Azul</h3>
+        <a href="livros/O vestido azul(1).pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="todas">
+        <img src="capas/Outra História de Iracema.jpg" alt="Livro 5" />
+        <h3>Outra História de Iracema</h3>
+        <a href="livros/arquivo_0_02590600_1617281751.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="9-12">
+        <img src="capas/Quando a Minha Escola Abrir.jpg" alt="Livro 5" />
+        <h3>Quando a Minha Escola Abrir</h3>
+        <a href="livros/QUANDO-MINHA-ESCOLA-ABRIR.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="6-8">
+        <img src="capas/Tirrim e Cocoricó.jpg" alt="Livro 5" />
+        <h3>Tirrim e Cocoricó</h3>
+        <a href="livros/Tirrim e Cocoricó.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+      <div class="livro" data-faixa="todas">
+        <img src="capas/vicente-diferente.jpg" alt="Livro 5" />
+        <h3>Vicente, o Diferente </h3>
+        <a href="livros/vicenteodiferente-1.pdf" target="_blank" class="btn">Ler história</a>
+      </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
