@@ -1,9 +1,11 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Corpo da página */
 body {
   font-family: 'Comic Sans MS', sans-serif;
   background-color: #ffc337;
@@ -13,6 +15,7 @@ body {
   align-items: center;
 }
 
+/* Barra de navegação (não fixa) */
 .navbar {
   width: 100%;
   background-color: #673ab7;
@@ -28,8 +31,14 @@ body {
   border-radius: 20px;
   font-weight: bold;
   text-decoration: none;
+  transition: background-color 0.3s;
 }
 
+.navbar .inicio:hover {
+  background-color: #5a9f37;
+}
+
+/* Cabeçalho */
 header {
   text-align: center;
   background-color: #673ab7;
@@ -38,21 +47,35 @@ header {
   width: 100%;
 }
 
+/* Container principal */
 .container {
   text-align: center;
   padding: 20px;
+  padding-bottom: 100px; /* Evita que o rodapé fixe sobre o conteúdo */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
+/* Canvas do jogo */
 #gameCanvas {
   background-color: #ffffff;
   border: 4px solid #673ab7;
   border-radius: 10px;
   display: block;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
+/* Botões */
 .bottom-buttons {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 button.verde {
@@ -63,12 +86,40 @@ button.verde {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  margin: 10px auto;
 }
 
 button.verde:hover {
   background-color: #45a049;
 }
 
+button:focus {
+  outline: none;
+}
+
+/* Mensagens */
+.mensagem,
+.parabens {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+  padding: 10px 15px;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.mensagem {
+  background-color: #ff6f61;
+}
+
+.parabens {
+  background-color: #4caf50;
+}
+
+/* Rodapé fixo */
 footer.caixadeinstrucao {
   width: 100%;
   height: 60px;
@@ -81,10 +132,33 @@ footer.caixadeinstrucao {
   align-items: center;
   justify-content: center;
   box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 10px 20px;
+  z-index: 100;
 }
 
-.mensagem {
-  font-weight: bold;
-  font-size: 20px;
-  margin-top: 10px;
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .bottom-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  #gameCanvas {
+    width: 90%;
+    height: auto;
+  }
+
+  button.verde {
+    width: 80%;
+    font-size: 16px;
+    margin: 10px 0;
+  }
 }

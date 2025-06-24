@@ -1,115 +1,112 @@
-// Seleciona os elementos DOM
-const cardBoard = document.querySelector("#cardboard");
-const scoreElement = document.querySelector("#score");
-const messageElement = document.querySelector("#message");
-const restartBtn = document.querySelector("#restart-btn");
+document.addEventListener("DOMContentLoaded", () => {
+  const cardBoard = document.querySelector("#cardboard");
+  const scoreElement = document.querySelector("#score");
+  const messageElement = document.querySelector("#message");
+  const restartBtn = document.querySelector("#restart-btn");
 
-// Imagens dos pares
-const imgs = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
+  const imgs = ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"];
 
-let firstCard = null;
-let secondCard = null;
-let lockCards = false;
-let score = 0;
+  let firstCard = null;
+  let secondCard = null;
+  let lockCards = false;
+  let score = 0;
+  let totalMatches = 0;
 
-// Embaralhamento do array
-function shuffle(array) {
-  return array.sort(() => Math.random() - 0.5);
-}
-
-// Cria as cartas na tela
-function createCards() {
-  const cards = shuffle([...imgs, ...imgs]);
-  let cardHTML = "";
-
-  cards.forEach(img => {
-    cardHTML += `
-      <div class="memory-card" data-card="${img}">
-        <img class="front-face" src="img/${img}" alt="Carta Frente" />
-        <img class="back-face" src="img/tras.png" alt="Carta Verso" />
-      </div>`;
-  });
-
-  cardBoard.innerHTML = cardHTML;
-
-  // Adiciona evento de clique a todas as cartas
-  document.querySelectorAll(".memory-card").forEach(card =>
-    card.addEventListener("click", flipCard)
-  );
-}
-
-// Gira a carta
-function flipCard() {
-  if (lockCards || this === firstCard || this.classList.contains("matched")) return;
-
-  this.classList.add("flip");
-
-  if (!firstCard) {
-    firstCard = this;
-    return;
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
   }
 
-  secondCard = this;
-  checkForMatch();
-}
+  function createCards() {
+    const cards = shuffle([...imgs, ...imgs]); // duplica imagens
+    let cardHTML = "";
 
-// Verifica se houve acerto
-function checkForMatch() {
-  const isMatch = firstCard.dataset.card === secondCard.dataset.card;
+    cards.forEach(img => {
+      cardHTML += `
+        <div class="memory-card" data-card="${img}">
+          <img class="front-face" src="img/${img}" alt="Carta Frente" />
+          <img class="back-face" src="img/tras.png" alt="Carta Verso" />
+        </div>`;
+    });
 
-  isMatch ? disableCards() : unflipCards();
-}
-
-// Desativa clique e mantém viradas
-function disableCards() {
-  firstCard.classList.add("matched");
-  secondCard.classList.add("matched");
-
-  firstCard.removeEventListener("click", flipCard);
-  secondCard.removeEventListener("click", flipCard);
-
-  updateScore(10);
-  resetCards();
-
-  // Checa se acabou o jogo
-  if (document.querySelectorAll(".memory-card:not(.matched)").length === 0) {
-    setTimeout(() => {
-      messageElement.textContent = "🎉 Parabéns! Você venceu!";
-    }, 500);
-  }
-}
-
-// Desvira cartas erradas
-function unflipCards() {
-  lockCards = true;
-
-  setTimeout(() => {
-    firstCard.classList.remove("flip");
-    secondCard.classList.remove("flip");
+    cardBoard.innerHTML = cardHTML;
+    document.querySelectorAll(".memory-card").forEach(card =>
+      card.addEventListener("click", flipCard)
+    );
+    totalMatches = 0;
     resetCards();
-  }, 1000);
-}
+  }
 
-// Reseta variáveis temporárias
-function resetCards() {
-  [firstCard, secondCard, lockCards] = [null, null, false];
-}
+  function flipCard() {
+    if (lockCards || this === firstCard || this.classList.contains("matched")) return;
 
-// Atualiza pontuação na tela
-function updateScore(points) {
-  score += points;
-  scoreElement.textContent = `Pontuação: ${score}`;
-}
+    this.classList.add("flip");
 
-// Reinicia o jogo
-function restartGame() {
-  score = 0;
-  updateScore(0);
-  messageElement.textContent = "";
+    if (!firstCard) {
+      firstCard = this;
+      return;
+    }
+
+    secondCard = this;
+    lockCards = true;
+    checkForMatch();
+  }
+
+  function checkForMatch() {
+    const isMatch = firstCard.dataset.card === secondCard.dataset.card;
+    if (isMatch) {
+      disableCards();
+    } else {
+      unflipCards();
+    }
+  }
+
+  function disableCards() {
+    firstCard.classList.add("matched");
+    secondCard.classList.add("matched");
+
+    firstCard.removeEventListener("click", flipCard);
+    secondCard.removeEventListener("click", flipCard);
+
+    updateScore(10);
+    totalMatches++;
+
+    setTimeout(() => {
+      resetCards();
+
+      const totalPairs = imgs.length;
+      if (totalMatches === totalPairs) {
+        messageElement.textContent = "🎉 Parabéns! Você encontrou todos os pares!";
+      }
+    }, 500); // tempo para garantir que a virada finalize
+  }
+
+  function unflipCards() {
+    setTimeout(() => {
+      firstCard.classList.remove("flip");
+      secondCard.classList.remove("flip");
+      resetCards();
+    }, 1000); // tempo maior para mostrar as cartas antes de desvirar
+  }
+
+  function resetCards() {
+    [firstCard, secondCard, lockCards] = [null, null, false];
+  }
+
+  function updateScore(points) {
+    score += points;
+    scoreElement.textContent = `Pontuação: ${score}`;
+  }
+
+  function restartGame() {
+    score = 0;
+    scoreElement.textContent = "Pontuação: 0";
+    messageElement.textContent = "";
+    createCards();
+  }
+
+  restartBtn.addEventListener("click", restartGame);
+
+  // Inicialização do jogo
   createCards();
-}
-
-// Início do jogo
-restartBtn.addEventListener("click", restartGame);
-createCards();
-updateScore(0);
+  updateScore(0);
+});
