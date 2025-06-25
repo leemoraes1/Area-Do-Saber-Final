@@ -252,3 +252,141 @@
   scrollbar-width: auto; 
   scrollbar-color: #e040fb #ffe082;
 }
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 16px; /* Fonte menor para caber */
+  }
+
+  .nav-bar {
+    flex-direction: column;
+    padding: 10px 15px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .nome-site {
+    font-size: 22px;
+    white-space: normal; /* Quebra o nome se precisar */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .menu {
+    gap: 15px;
+    margin-right: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .menu a {
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-left: 0;
+  }
+
+  .container-jogos {
+    flex-direction: column;
+    margin: 80px 10px 40px;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .bem-vindo {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .area-Jogos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 10px;
+    margin-top: 15px;
+  }
+
+  .area-Jogos a img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .area-Jogos a:last-child img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .banner-content h1 {
+    font-size: 28px;
+  }
+
+  .banner-content p {
+    font-size: 18px;
+  }
+}
+
+/* Tablets (481px a 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+
+  .nav-bar {
+    padding: 12px 20px;
+  }
+
+  .logo {
+    height: 55px;
+  }
+
+  .nome-site {
+    font-size: 24px;
+  }
+
+  .menu a {
+    padding: 10px 16px;
+    font-size: 16px;
+  }
+
+  .container-jogos {
+    margin: 100px 15px 50px;
+  }
+
+  .area-Jogos {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+}
+
+/* Grandes telas (769px pra cima) mantém seu estilo normal */
+@media (min-width: 769px) {
+  body {
+    font-size: 20px;
+  }
+
+  .nav-bar {
+    padding: 15px 30px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .nome-site {
+    font-size: 28px;
+  }
+
+  .menu a {
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+
+  .container-jogos {
+    margin: 120px auto 60px;
+  }
+
+  .area-Jogos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
