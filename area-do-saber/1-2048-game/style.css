@@ -10,7 +10,7 @@ body {
   background-color: #ffc337;
   height: 100vh;              /* altura total da tela */
   margin: 0;
-  overflow: hidden;           /* bloqueia rolagem */
+
   display: flex;
   flex-direction: column;
 }
