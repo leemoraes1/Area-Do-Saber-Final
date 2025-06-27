@@ -9,6 +9,49 @@ const tamanhoBloco = canvas.width / tamanhoTabuleiro;
 document.addEventListener("keydown", controleTeclado);
 document.getElementById("reiniciarBtn").addEventListener("click", reiniciarJogo);
 
+// Variáveis para touch
+let toqueInicioX = 0;
+let toqueInicioY = 0;
+let toqueFimX = 0;
+let toqueFimY = 0;
+const limiteSwipe = 30; // mínimo de pixels para considerar swipe válido
+
+// Eventos touch para swipe
+canvas.addEventListener("touchstart", e => {
+  const toque = e.changedTouches[0];
+  toqueInicioX = toque.clientX;
+  toqueInicioY = toque.clientY;
+}, false);
+
+canvas.addEventListener("touchend", e => {
+  const toque = e.changedTouches[0];
+  toqueFimX = toque.clientX;
+  toqueFimY = toque.clientY;
+
+  const deltaX = toqueFimX - toqueInicioX;
+  const deltaY = toqueFimY - toqueInicioY;
+
+  if (Math.abs(deltaX) > Math.abs(deltaY)) {
+    // swipe horizontal
+    if (Math.abs(deltaX) > limiteSwipe) {
+      if (deltaX > 0) {
+        moverTabuleiro("direita");
+      } else {
+        moverTabuleiro("esquerda");
+      }
+    }
+  } else {
+    // swipe vertical
+    if (Math.abs(deltaY) > limiteSwipe) {
+      if (deltaY > 0) {
+        moverTabuleiro("baixo");
+      } else {
+        moverTabuleiro("cima");
+      }
+    }
+  }
+}, false);
+
 iniciarJogo();
 
 function iniciarJogo() {
