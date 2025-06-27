@@ -1,16 +1,16 @@
 @font-face {
-    font-family: "Ravenwood";
-    src: url("fonts/Ravenwood-g5JR.ttf") format("truetype");
-  }
-  
-  @font-face {
-    font-family: "Ravenwood";
-    src: url("fonts/RavenwoodItalic-oO60.ttf") format("truetype");
-    font-style: italic;
-  }
-  
-  body {
-  background-image: url("img/");
+  font-family: "Ravenwood";
+  src: url("fonts/Ravenwood-g5JR.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Ravenwood";
+  src: url("fonts/RavenwoodItalic-oO60.ttf") format("truetype");
+  font-style: italic;
+}
+
+body {
+  background-image: url("img/fundo-principal.jpg"); /* Substitua pela imagem correta */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -24,23 +24,24 @@
   color: #4a2600;
   display: block; 
   overflow-x: hidden;
-  }
-  
-  body::after {
-    content: "";
-    background-image: url("img/confetes.png");
-    background-repeat: repeat;
-    background-size: 120px;
-    opacity: 0.1;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 300px;
-    z-index: 0;
-  }
-  
-  /* Estilo da barra de navegação */
+  position: relative;
+}
+
+body::after {
+  content: "";
+  background-image: url("img/confetes.png");
+  background-repeat: repeat;
+  background-size: 120px;
+  opacity: 0.1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 0;
+}
+
+/* Estilo da barra de navegação */
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -56,14 +57,12 @@
   gap: 15px;
 }
 
-
 .logo {
   height: 60px;
   width: auto;
   display: block;
   border-radius: 50%;
 }
-
 
 .nome-site {
   color: #000000;
@@ -74,126 +73,103 @@
   white-space: nowrap;
 }
 
+.menu {
+  display: flex;
+  gap: 40px;
+  margin-right: 20px;
+  flex-wrap: wrap;
+}
 
 .menu a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
   font-weight: bold;
-  transition: color 0.3s;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+#inicio { background-color: #85c56a; }
+#pcd { background-color: #ef7f74; }
+#amiguinho { background-color: #fecd1a; }
 
 .menu a:hover {
-  color: #ffeb3b;
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    padding: 10px;
-  }
-  .game-box {
-    width: 100%;
-  }
-}
-  
-  .menu {
-    display: flex;
-    gap: 40px;
-    margin-right: 20px;
-  }
-  
-  .menu a {
-    font-weight: bold;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    color: rgb(255, 255, 255);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  #inicio { background-color: #85c56a; }
-  #pcd { background-color: #ef7f74; }
-  #amiguinho { background-color: #fecd1a; }
-
-  .menu a:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-  }
-  
-  .container-jogos {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 30px;
-    width: 100%;
-    max-width: 1000px;
-    margin: 120px auto 60px;
-    padding: 0 20px;
-    z-index: 1;
-  }
-  
-  .bem-vindo {
-    margin: 20px 0;
-    background-color: #5e17eb;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    width: 300px;
-    height: 500px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  }
-  
-  .bem-vindo h1 {
-    font-size: 28px;
-    margin-bottom: 10px;
-  }
-  
-  .bem-vindo p {
-    font-size: 18px;
-  }
-  
-
-  .area-Jogos {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    justify-items: center;
-    flex: 1;
-    padding: 20px;
-    margin-top: 20px;
-  }
-  
-  .area-Jogos a img {
-    width: 160px;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-  }
-  
-  .area-Jogos a img:hover {
-    transform: scale(1.07);
-  }
-  
-
-  .area-Jogos a:last-child {
-    grid-column: 2 / span 2;
-  }
-  
-  .area-Jogos a:last-child img {
-    width: 200px;
-    height: 200px;
-  }
-  .banner {
+.container-jogos {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 30px;
   width: 100%;
-  height: 100vh; 
+  max-width: 1000px;
+  margin: 120px auto 60px;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.bem-vindo {
+  margin: 20px 0;
+  background-color: #5e17eb;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  width: 300px;
+  height: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.bem-vindo h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.bem-vindo p {
+  font-size: 18px;
+}
+
+.area-Jogos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  justify-items: center;
+  flex: 1;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.area-Jogos a img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.area-Jogos a img:hover {
+  transform: scale(1.07);
+}
+
+.area-Jogos a:last-child {
+  grid-column: 2 / span 2;
+}
+
+.area-Jogos a:last-child img {
+  width: 200px;
+  height: 200px;
+}
+
+.banner {
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
   background-image: url("img/fundo.png");
   background-size: cover;
   background-position: center;
@@ -205,6 +181,9 @@
   position: relative;
   text-align: center;
   color: white;
+  flex-direction: column;
+  padding: 40px 20px;
+  box-sizing: border-box;
 }
 
 .banner::after {
@@ -233,6 +212,7 @@
   font-size: 22px;
 }
 
+/* Scroll personalizado */
 ::-webkit-scrollbar {
   width: 16px;
 }
@@ -252,10 +232,16 @@
   scrollbar-width: auto; 
   scrollbar-color: #e040fb #ffe082;
 }
-/* Celulares pequenos (até 480px) */
+
+/* Celulares até 480px */
 @media (max-width: 480px) {
   body {
-    font-size: 16px; /* Fonte menor para caber */
+    font-size: 16px;
+  }
+
+  body::after {
+    height: 150px;
+    background-size: 80px;
   }
 
   .nav-bar {
@@ -269,7 +255,7 @@
 
   .nome-site {
     font-size: 22px;
-    white-space: normal; /* Quebra o nome se precisar */
+    white-space: normal;
     text-align: center;
     margin-bottom: 10px;
   }
@@ -278,7 +264,6 @@
     gap: 15px;
     margin-right: 0;
     justify-content: center;
-    flex-wrap: wrap;
     width: 100%;
   }
 
@@ -301,6 +286,14 @@
     padding: 15px;
   }
 
+  .bem-vindo h1 {
+    font-size: 24px;
+  }
+
+  .bem-vindo p {
+    font-size: 16px;
+  }
+
   .area-Jogos {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
@@ -311,6 +304,7 @@
   .area-Jogos a img {
     width: 120px;
     height: 120px;
+    border-radius: 15px;
   }
 
   .area-Jogos a:last-child img {
@@ -352,41 +346,5 @@
 
   .container-jogos {
     margin: 100px 15px 50px;
-  }
-
-  .area-Jogos {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  }
-}
-
-/* Grandes telas (769px pra cima) mantém seu estilo normal */
-@media (min-width: 769px) {
-  body {
-    font-size: 20px;
-  }
-
-  .nav-bar {
-    padding: 15px 30px;
-  }
-
-  .logo {
-    height: 60px;
-  }
-
-  .nome-site {
-    font-size: 28px;
-  }
-
-  .menu a {
-    padding: 12px 20px;
-    font-size: 18px;
-  }
-
-  .container-jogos {
-    margin: 120px auto 60px;
-  }
-
-  .area-Jogos {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
