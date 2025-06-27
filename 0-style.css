@@ -1,3 +1,4 @@
+/* Fontes (ajuste os caminhos conforme seu projeto) */
 @font-face {
   font-family: "Ravenwood";
   src: url("fonts/Ravenwood-g5JR.ttf") format("truetype");
@@ -8,6 +9,7 @@
   font-style: italic;
 }
 
+/* Reset básico */
 body {
   margin: 0;
   padding: 0;
@@ -15,11 +17,11 @@ body {
   font-size: 20px;
   background-color: #6422b8;
   color: #4a2600;
-  background-image: none; /* ou coloque uma imagem real aqui */
   overflow-x: hidden;
   position: relative;
 }
 
+/* Confetes no fundo */
 body::after {
   content: "";
   background-image: url("img/confetes.png");
@@ -34,7 +36,7 @@ body::after {
   z-index: 0;
 }
 
-/* Barra de navegação */
+/* Navbar */
 .nav-bar {
   display: flex;
   justify-content: space-between;
@@ -42,6 +44,8 @@ body::after {
   padding: 15px 30px;
   background-color: #ffffff;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 20;
 }
 
 .logo-nome {
@@ -76,6 +80,7 @@ body::after {
   border-radius: 8px;
   color: white;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
 }
 
 #inicio { background-color: #85c56a; }
@@ -105,6 +110,7 @@ body::after {
   box-sizing: border-box;
   flex-direction: column;
   color: white;
+  z-index: 0;
 }
 
 .banner-content {
@@ -125,7 +131,7 @@ body::after {
   font-size: 22px;
 }
 
-/* Container principal */
+/* Container jogos */
 .container-jogos {
   display: flex;
   flex-direction: column;
@@ -134,7 +140,8 @@ body::after {
   max-width: 1000px;
   margin: 60px auto;
   padding: 0 20px;
-  z-index: 1;
+  position: relative;
+  z-index: 10; /* jogos na frente do banner */
 }
 
 .area-Jogos {
@@ -153,6 +160,7 @@ body::after {
   border-radius: 20px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .area-Jogos a img:hover {
@@ -164,7 +172,7 @@ body::after {
   height: 200px;
 }
 
-/* Scrollbar */
+/* Scrollbar estilizada */
 ::-webkit-scrollbar {
   width: 16px;
 }
@@ -182,7 +190,9 @@ body::after {
   scrollbar-color: #e040fb #ffe082;
 }
 
-/* Responsivo: Celulares pequenos */
+/* Responsividade */
+
+/* Celulares pequenos */
 @media (max-width: 480px) {
   body {
     font-size: 16px;
@@ -226,27 +236,11 @@ body::after {
     padding: 8px 12px;
     margin: 5px 0;
   }
+
   .banner {
-  width: 100%;
-  min-height: 100vh;
-  background-image: url("img/fundo.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    background-attachment: scroll; /* para funcionar bem em mobile */
+  }
 
-  /* Remover isso melhora compatibilidade mobile */
-  background-attachment: scroll;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column;
-  padding: 40px 20px;
-  box-sizing: border-box;
-  position: relative;
-  color: white;
-}
   .banner-content h1 {
     font-size: 26px;
   }
@@ -295,7 +289,7 @@ body::after {
   }
 }
 
-/* Desktops */
+/* Desktop */
 @media (min-width: 769px) {
   .logo {
     height: 60px;
