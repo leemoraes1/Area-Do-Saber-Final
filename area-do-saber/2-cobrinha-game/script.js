@@ -1,7 +1,7 @@
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-const box = 20;
-const totalBoxes = canvas.width / box;
+let box = 20;
+let totalBoxes;
 
 let snake = [];
 let food = {};
@@ -9,8 +9,21 @@ let direction = "";
 let game;
 let score = 0;
 
+// Função para ajustar o tamanho do canvas de forma responsiva
+function resizeCanvas() {
+  canvas.width = window.innerWidth * 0.8;  // 80% da largura da tela
+  canvas.height = window.innerHeight * 0.6;  // 60% da altura da tela
+
+  totalBoxes = Math.floor(canvas.width / box);
+}
+
+resizeCanvas();  // Chama a função uma vez no início
+
+// Recalcula o tamanho quando a janela é redimensionada
+window.addEventListener('resize', resizeCanvas);
+
 function startGame() {
-  snake = [{ x: 9 * box, y: 9 * box }];
+  snake = [{ x: Math.floor(totalBoxes / 2) * box, y: Math.floor(totalBoxes / 2) * box }];
   direction = "RIGHT";
   score = 0;
 
@@ -32,11 +45,13 @@ function createFood() {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Desenha a cobrinha
   for (let i = 0; i < snake.length; i++) {
     ctx.fillStyle = i === 0 ? "#673ab7" : "#9575cd";
     ctx.fillRect(snake[i].x, snake[i].y, box, box);
   }
 
+  // Desenha o alimento
   ctx.fillStyle = "#ff6f61";
   ctx.fillRect(food.x, food.y, box, box);
 
