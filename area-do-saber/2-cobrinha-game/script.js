@@ -79,9 +79,51 @@ function collision(x, y, array) {
   return array.some(segment => segment.x === x && segment.y === y);
 }
 
+// Controle por teclado
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
   else if (e.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
   else if (e.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
   else if (e.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
 });
+
+// Controle por toque (mobile)
+let touchStartX = 0;
+let touchStartY = 0;
+
+canvas.addEventListener("touchstart", function (e) {
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+});
+
+canvas.addEventListener("touchmove", function (e) {
+  if (!touchStartX || !touchStartY) return;
+
+  const touch = e.touches[0];
+  const touchEndX = touch.clientX;
+  const touchEndY = touch.clientY;
+
+  const diffX = touchEndX - touchStartX;
+  const diffY = touchEndY - touchStartY;
+
+  if (Math.abs(diffX) > Math.abs(diffY)) {
+    if (diffX > 0 && direction !== "LEFT") direction = "RIGHT";
+    else if (diffX < 0 && direction !== "RIGHT") direction = "LEFT";
+  } else {
+    if (diffY > 0 && direction !== "UP") direction = "DOWN";
+    else if (diffY < 0 && direction !== "DOWN") direction = "UP";
+  }
+
+  touchStartX = 0;
+  touchStartY = 0;
+});
+
+// Evita scroll no canvas em celulares
+document.body.addEventListener('touchstart', function(e) {
+  if (e.target === canvas) e.preventDefault();
+}, { passive: false });
+
+document.body.addEventListener('touchmove', function(e) {
+  if (e.target === canvas) e.preventDefault();
+}, { passive: false });
